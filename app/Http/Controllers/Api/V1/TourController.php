@@ -3,19 +3,20 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\V1\TravelResource;
+use App\Http\Resources\V1\TourResource;
+use App\Models\Tour;
 use App\Models\Travel;
 use Illuminate\Http\Request;
 
-class TravelController extends Controller
+class TourController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Travel $travel)
     {
-        $travels = Travel::where('is_public', true)->paginate();
-        return TravelResource::collection($travels);
+        $tours = $travel->tours()->orderBy('starting_date')->paginate();
+        return TourResource::collection($tours);
     }
 
     /**
@@ -29,9 +30,9 @@ class TravelController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Travel $travel)
+    public function show(string $id)
     {
-        return new TravelResource($travel);
+        //
     }
 
     /**

@@ -13,5 +13,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(RolesSeeder::class);
+
+        \App\Models\Travel::factory(5)->create();
+        \App\Models\Tour::factory(5)->create();
     }
 }

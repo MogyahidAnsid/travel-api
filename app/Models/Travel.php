@@ -24,11 +24,6 @@ class Travel extends Model
         'number_of_nights'
     ];
 
-    public function getRouteKeyName(): string
-    {
-        return 'slug';
-    }
-
     /**
      * Get the options for generating the slug.
      */

@@ -19,6 +19,11 @@ class Tour extends Model
         'price'
     ];
 
+    public function travels(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Travel::class);
+    }
+
     public function price(): Attribute
     {
         return Attribute::make(

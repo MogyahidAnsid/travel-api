@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\V1\TourController;
 use App\Http\Controllers\Api\V1\TravelController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -17,8 +18,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('v1')->group(
     function () {
 
-        // Travels Route
-        Route::get('travels', [TravelController::class, 'index'])->name('travel.index');
-        Route::get('travels/{travel:slug}', [TravelController::class, 'show'])->name('travel.show');
+        // Travels Routes
+        Route::get('travels', [TravelController::class, 'index'])->name('Travels.index');
+        // Route::get('travels/{travel:slug}', [TravelController::class, 'show'])->name('travels.show');
+
+        // Tour Routes
+        Route::get('travels/{travel:slug}/tours', [TourController::class, 'index'])->name('tours.index');
     }
 );
