@@ -14,7 +14,6 @@ class TourResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            // 'travels' => new TravelResource($this->whenLoaded('travels')),
             'name' => $this->name,
             'startingDate' => $this->starting_date,
             'endingDate' => $this->ending_date,
