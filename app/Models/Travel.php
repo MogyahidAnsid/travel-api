@@ -34,16 +34,11 @@ class Travel extends Model
             ->saveSlugsTo('slug');
     }
 
-    /**
-     * =====================
-     * Relationships.
-     * =====================
-     */
-
     public function tours(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Tour::class);
     }
+
     public function numberOfNights(): Attribute
     {
         return Attribute::make(

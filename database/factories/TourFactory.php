@@ -18,7 +18,7 @@ class TourFactory extends Factory
     public function definition(): array
     {
         return [
-            // 'travel_id' => Travel::inRandomOrder()->first()->id,
+            'travel_id' => Travel::inRandomOrder()->first()->id,
             'name' => fake()->name(),
             'starting_date' => fake()->date(),
             'ending_date' => fake()->date(),
